@@ -33,12 +33,11 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran1)){
             
-                $img[] = Html::img($url.'/web/UploadedFile/'.$model->lampiran1, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+            $img[] = $url.'/web/upload/keluar/'.$model->lampiran1;
 
-                $json[] = [
-                    'caption'=>$model->lampiran1, Url::to(['/file/delete-upload']),
-                      'key' => 'lampiran1 '.  $model->lampiran1, 
-                ];
+            $json[] = [
+                  'type' => "pdf", 'size' => 8000, 'caption' => $model->lampiran1, 'url' => '"'.$url.'"/web/upload/keluar/"'.$model->lampiran1.'"', 'key' => 10, 
+            ];
             }
         ?>
 
@@ -50,12 +49,13 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
             'showCancel' => false,
             'overwriteInitial' => false,
             'initialPreviewConfig' => $json,
+            'initialPreviewAsData'=> true,
             'previewFileType' => 'image',
             'initialPreview' => $img,
             'uploadAsync'=> true,
             'maxFileSize' => 3*1024*1024,
             'deleteUrl' => Url::to(['/file/delete-upload']),
-            'allowedExtensions' => ['jpg','png','jpeg'],
+            'allowedExtensions' => ['pdf'],
         ]
      ])?>
     <?php else : ?>
@@ -73,12 +73,12 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran2)){
             
-                $img[] = Html::img($url.'/web/UploadedFile/'.$model->lampiran2, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+            $img[] = $url.'/web/upload/keluar/'.$model->lampiran2;
 
-                $json[] = [
-                    'caption'=>$model->lampiran2, Url::to(['/file/delete-upload']),
-                      'key' => 'lampiran2 '.  $model->lampiran2, 
-                ];
+            $json[] = [
+                  'type' => "pdf", 'size' => 8000, 'caption' => $model->lampiran2, 'url' => '"'.$url.'"/web/upload/keluar/"'.$model->lampiran2.'"', 'key' => 10, 
+            ];
+
             }
         ?>
 
@@ -90,12 +90,13 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
             'showCancel' => false,
             'overwriteInitial' => false,
             'initialPreviewConfig' => $json,
+            'initialPreviewAsData'=> true,
             'previewFileType' => 'image',
             'initialPreview' => $img,
             'uploadAsync'=> true,
             'maxFileSize' => 3*1024*1024,
             'deleteUrl' => Url::to(['/file/delete-upload']),
-            'allowedExtensions' => ['jpg','png','jpeg'],
+            'allowedExtensions' => ['pdf'],
         ]
      ])?>
     <?php else : ?>
@@ -113,12 +114,11 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran3)){
             
-                $img[] = Html::img($url.'/web/UploadedFile/'.$model->lampiran3, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+            $img[] = $url.'/web/upload/keluar/'.$model->lampiran3;
 
-                $json[] = [
-                    'caption'=>$model->lampiran3, Url::to(['/file/delete-upload']),
-                      'key' => 'lampiran3 '.  $model->lampiran3, 
-                ];
+            $json[] = [
+                  'type' => "pdf", 'size' => 8000, 'caption' => $model->lampiran3, 'url' => '"'.$url.'"/web/upload/keluar/"'.$model->lampiran3.'"', 'key' => 10, 
+            ]; 
             }
         ?>
 
@@ -153,12 +153,11 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran4)){
             
-                $img[] = Html::img($url.'/web/UploadedFile/'.$model->lampiran4, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+            $img[] = $url.'/web/upload/keluar/'.$model->lampiran4;
 
-                $json[] = [
-                    'caption'=>$model->lampiran4, Url::to(['/file/delete-upload']),
-                      'key' => 'lampiran4'.  $model->lampiran4, 
-                ];
+            $json[] = [
+                  'type' => "pdf", 'size' => 8000, 'caption' => $model->lampiran4, 'url' => '"'.$url.'"/web/upload/keluar/"'.$model->lampiran4.'"', 'key' => 10, 
+            ];
             }
         ?>
 
@@ -170,12 +169,13 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
             'showCancel' => false,
             'overwriteInitial' => false,
             'initialPreviewConfig' => $json,
+            'initialPreviewAsData'=> true,
             'previewFileType' => 'image',
             'initialPreview' => $img,
             'uploadAsync'=> true,
             'maxFileSize' => 3*1024*1024,
             'deleteUrl' => Url::to(['/file/delete-upload']),
-            'allowedExtensions' => ['jpg','png','jpeg'],
+            'allowedExtensions' => ['pdf'],
         ]
      ])?>
     <?php else : ?>

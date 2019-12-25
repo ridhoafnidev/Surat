@@ -176,9 +176,9 @@ class SuratMasukController extends Controller
         $request = Yii::$app->request;
         $model = $this->findModel($id);       
         $old_file1 = $model->lampiran1;       
-        $old_file1 = $model->lampiran2;       
-        $old_file1 = $model->lampiran3;       
-        $old_file1 = $model->lampiran4;       
+        $old_file2 = $model->lampiran2;       
+        $old_file3 = $model->lampiran3;       
+        $old_file4 = $model->lampiran4;       
 
         if($request->isAjax){
             /*
@@ -201,7 +201,7 @@ class SuratMasukController extends Controller
                 $model->lampiran4 = UploadedFile::getInstance($model,'lampiran4');
                 if($model->lampiran1){
                     $file1 = $model->lampiran1->name;
-                    if ($model->lampiran1->saveAs('UploadedFile/'.$file1)){
+                    if ($model->lampiran1->saveAs('upload/masuk/'.$file1)){
                         $model->lampiran1 = $file1;           
                     }
                 }
@@ -211,7 +211,7 @@ class SuratMasukController extends Controller
 
                 if($model->lampiran2){
                     $file2 = $model->lampiran2->name;
-                    if ($model->lampiran2->saveAs('UploadedFile/'.$file2)){
+                    if ($model->lampiran2->saveAs('upload/masuk/'.$file2)){
                         $model->lampiran2 = $file2;           
                     }
                 }
@@ -221,7 +221,7 @@ class SuratMasukController extends Controller
 
                 if($model->lampiran3){
                     $file3 = $model->lampiran3->name;
-                    if ($model->lampiran3->saveAs('UploadedFile/'.$file3)){
+                    if ($model->lampiran3->saveAs('upload/masuk/'.$file3)){
                         $model->lampiran3 = $file3;           
                     }
                 }
@@ -231,13 +231,15 @@ class SuratMasukController extends Controller
 
                 if($model->lampiran4){
                     $file4 = $model->lampiran4->name;
-                    if ($model->lampiran4->saveAs('UploadedFile/'.$file4)){
+                    if ($model->lampiran4->saveAs('upload/masuk/'.$file4)){
                         $model->lampiran4 = $file4;           
                     }
                 }
                 if (empty($model->lampiran4)){
                      $model->lampiran4 = $old_file4;
                 }
+
+                $model->save(false);
 
                 return [
                     'forceReload'=>'#crud-datatable-pjax',

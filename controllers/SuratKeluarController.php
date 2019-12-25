@@ -132,10 +132,10 @@ class SuratKeluarController extends Controller
                 $model->save(false);
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Create new SuratKeluar",
+                    'title'=> "Tambah Surat Keluar",
                     'content'=>'<span class="text-success">Create SuratKeluar success</span>',
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                            Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                            Html::a('Tambah Lagi',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
         
                 ];         
             }else{           
@@ -183,17 +183,62 @@ class SuratKeluarController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Update SuratKeluar #".$id,
+                    'title'=> "Update Surat Keluar #".$id,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
                 ];         
-            }else if($model->load($request->post()) && $model->save()){
+            }else if($model->load($request->post())){
+                $model->lampiran1 = UploadedFile::getInstance($model,'lampiran1');
+                $model->lampiran2 = UploadedFile::getInstance($model,'lampiran2');
+                $model->lampiran3 = UploadedFile::getInstance($model,'lampiran3');
+                $model->lampiran4 = UploadedFile::getInstance($model,'lampiran4');
+                if($model->lampiran1){
+                    $file1 = $model->lampiran1->name;
+                    if ($model->lampiran1->saveAs('upload/keluar/'.$file1)){
+                        $model->lampiran1 = $file1;           
+                    }
+                }
+                if (empty($model->lampiran1)){
+                     $model->lampiran1 = $old_file1;
+                }
+
+                if($model->lampiran2){
+                    $file2 = $model->lampiran2->name;
+                    if ($model->lampiran2->saveAs('upload/keluar/'.$file2)){
+                        $model->lampiran2 = $file2;           
+                    }
+                }
+                if (empty($model->lampiran2)){
+                     $model->lampiran2 = $old_file2;
+                }
+
+                if($model->lampiran3){
+                    $file3 = $model->lampiran3->name;
+                    if ($model->lampiran3->saveAs('upload/keluar/'.$file3)){
+                        $model->lampiran3 = $file3;           
+                    }
+                }
+                if (empty($model->lampiran3)){
+                     $model->lampiran3 = $old_file3;
+                }
+
+                if($model->lampiran4){
+                    $file4 = $model->lampiran4->name;
+                    if ($model->lampiran4->saveAs('upload/keluar/'.$file4)){
+                        $model->lampiran4 = $file4;           
+                    }
+                }
+                if (empty($model->lampiran4)){
+                     $model->lampiran4 = $old_file4;
+                }
+
+                $model->save(false);
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "SuratKeluar #".$id,
+                    'title'=> "Surat Keluar #".$id,
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
