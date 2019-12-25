@@ -35,7 +35,7 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran1)){
             
-                $img[] = Html::img($url.'/web/UploadedFileKeluar/'.$model->lampiran1, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+                $img[] = Html::img($url.'/web/upload/masuk/'.$model->lampiran1, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
 
                 $json[] = [
                     'caption'=>$model->lampiran1, Url::to(['/file/delete-upload']),
@@ -75,7 +75,7 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran2)){
             
-                $img[] = Html::img($url.'/web/UploadedFileKeluar/'.$model->lampiran2, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+                $img[] = Html::img($url.'/web/upload/masuk/'.$model->lampiran2, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
 
                 $json[] = [
                     'caption'=>$model->lampiran2, Url::to(['/file/delete-upload']),
@@ -115,7 +115,7 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran3)){
             
-                $img[] = Html::img($url.'/web/UploadedFileKeluar/'.$model->lampiran3, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+                $img[] = Html::img($url.'/web/upload/masuk/'.$model->lampiran3, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
 
                 $json[] = [
                     'caption'=>$model->lampiran3, Url::to(['/file/delete-upload']),
@@ -155,7 +155,7 @@ $url = Yii::$app->urlManagerFrontEnd->baseUrl;
         $json = [];
         if (!empty($model->lampiran4)){
             
-                $img[] = Html::img($url.'/web/UploadedFileKeluar/'.$model->lampiran4, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
+                $img[] = Html::img($url.'/web/upload/masuk/'.$model->lampiran4, ['style' => 'width:auto; height:auto; max-width:100%; max-height:100%']);
 
                 $json[] = [
                     'caption'=>$model->lampiran4, Url::to(['/file/delete-upload']),
