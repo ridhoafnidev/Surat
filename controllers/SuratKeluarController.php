@@ -124,9 +124,9 @@ class SuratKeluarController extends Controller
                     }
                 }
                 if($model->lampiran4){
-                    $file4 = $model->lampiran4->name;
+                    $file5 = $model->lampiran4->name;
                     if ($model->lampiran4->saveAs('UploadedFileKeluar/'.$file4) ){
-                        $model->lampiran4 = $file4;           
+                        $model->lampiran4 = $file5;        
                     }
                 }
                 $model->save(false);
